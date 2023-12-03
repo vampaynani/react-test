@@ -2,35 +2,28 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+```
+
+second, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. State Management: It uses the useState hook for managing state related to form visibility and the list of tiles. `useState` is used to manage state that seems to be local to a single component. If this state needed to be accessed by many distant components, Context might be a better choice. However, because the state is only managed in a single component and closely related components, `useState` is likely the simpler and more appropriate choice.
 
-## Learn More
+Form Handling: The openForm function is used to show a form for creating a new tile.
 
-To learn more about Next.js, take a look at the following resources:
+Tile Creation: The createNewTile function is used to create and append a new tile. It checks if the tile text is not empty and if a tile with the same text doesn't already exist before adding the new tile to the tiles state.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Rendering: It renders a TilesSection component. Inside this component, it renders a TileGenerator component and maps over activeTiles to render a TileCard component for each active tile.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Tile Deletion: The TileCard component receives a `deleteTile` function as a prop, which is used to delete a tile.
