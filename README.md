@@ -20,10 +20,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 1. State Management: It uses the useState hook for managing state related to form visibility and the list of tiles. `useState` is used to manage state that seems to be local to a single component. If this state needed to be accessed by many distant components, Context might be a better choice. However, because the state is only managed in a single component and closely related components, `useState` is likely the simpler and more appropriate choice.
 
-Form Handling: The openForm function is used to show a form for creating a new tile.
+2. Form Handling: The openForm function is used to show a form for creating a new tile.
 
-Tile Creation: The createNewTile function is used to create and append a new tile. It checks if the tile text is not empty and if a tile with the same text doesn't already exist before adding the new tile to the tiles state.
+3. Tile Creation: The createNewTile function is used to create and append a new tile. It checks if the tile text is not empty and if a tile with the same text doesn't already exist before adding the new tile to the tiles state.
 
-Rendering: It renders a TilesSection component. Inside this component, it renders a TileGenerator component and maps over activeTiles to render a TileCard component for each active tile.
+4. Rendering: It renders a TilesSection component. Inside this component, it renders a TileGenerator component and maps over activeTiles to render a TileCard component for each active tile.
 
-Tile Deletion: The TileCard component receives a `deleteTile` function as a prop, which is used to delete a tile.
+5. Tile Deletion: The TileCard component receives a `deleteTile` function as a prop, which is used to delete a tile.
